@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 数秘術占いアプリ
 
-## Getting Started
+このプロジェクトは、メールアドレスから数秘術に基づいた今日の運勢を占うWebアプリケーションです。Google Gemini APIを利用して、詩的でポジティブなメッセージを生成します。
 
-First, run the development server:
+## 機能
+
+*   メールアドレスの入力による数秘術計算
+*   内面、環境、人間関係の3つの側面からの運勢表示
+*   Google Gemini APIによる占い結果の生成
+*   `GEMINI_API_KEY` が設定されていない場合のフォールバック表示
+*   Twitterでの結果シェア機能
+
+## セットアップ
+
+1.  リポジリをクローンします。
+
+    ```bash
+    git clone https://github.com/your-username/numerology-app.git
+    cd numerology-app
+    ```
+
+2.  依存関係をインストールします。
+
+    ```bash
+    pnpm install
+    ```
+
+3.  環境変数を設定します。
+    `.env.local` ファイルを作成し、Google Gemini APIキーを設定します。
+
+    ```
+    GEMINI_API_KEY=YOUR_GEMINI_API_KEY
+    ```
+
+    **注意:** `GEMINI_API_KEY` が設定されていない場合でも、アプリは基本的な占い結果（対象、キーワード、天気マーク）を表示します。
+
+## 開発サーバーの起動
+
+開発サーバーを起動します。
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで [http://localhost:3000](http://localhost:3000) を開くと、アプリケーションが表示されます。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 技術スタック
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+*   Next.js
+*   React
+*   Tailwind CSS
+*   Google Gemini API
