@@ -6,13 +6,11 @@
 
 *   メールアドレスの入力による数秘術計算
 *   内面、環境、人間関係の3つの側面からの運勢表示
-*   Google Gemini APIによる占い結果の生成
-*   `GEMINI_API_KEY` が設定されていない場合のフォールバック表示
 *   Twitterでの結果シェア機能
 
 ## セットアップ
 
-1.  リポジリをクローンします。
+1.  リポジトリをクローンします。
 
     ```bash
     git clone https://github.com/your-username/numerology-app.git
@@ -24,9 +22,6 @@
     ```bash
     pnpm install
     ```
-
-3.  環境変数を設定します。
-    `.env.local` ファイルを作成します。
 
 ## 開発サーバーの起動
 
