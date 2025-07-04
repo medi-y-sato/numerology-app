@@ -13,6 +13,7 @@ interface NumerologyResponse {
   naimen: NumerologyResult;
   kankyo: NumerologyResult;
   ningen: NumerologyResult;
+  sogo: NumerologyResult;
 }
 
 export default function Home() {
@@ -68,7 +69,7 @@ export default function Home() {
   const handleShare = () => {
     if (!fortuneResults) return;
 
-    const text = `今日の私の運勢は【内面: ${fortuneResults.naimen.mark}, 環境: ${fortuneResults.kankyo.mark}, 人間関係: ${fortuneResults.ningen.mark}】でした！ #数秘術占い ${window.location.origin}`;
+    const text = `今日の私の運勢は【総合運: ${fortuneResults.sogo.mark}, 内面: ${fortuneResults.naimen.mark}, 環境: ${fortuneResults.kankyo.mark}, 人間関係: ${fortuneResults.ningen.mark}】でした！ #数秘術占い ${window.location.origin}`;
     const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`;
     window.open(twitterUrl, "_blank");
   };
@@ -112,6 +113,9 @@ export default function Home() {
                 </Accordion>
                 <Accordion title={`あなたの人間関係: ${fortuneResults.ningen.mark}`}>
                   <p className="text-left whitespace-pre-wrap">{fortuneResults.ningen.text}</p>
+                </Accordion>
+                <Accordion title={`総合運: ${fortuneResults.sogo.mark}`}>
+                  <p className="text-left whitespace-pre-wrap">{fortuneResults.sogo.text}</p>
                 </Accordion>
               </div>
             ) : (

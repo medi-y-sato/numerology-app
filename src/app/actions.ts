@@ -9,6 +9,7 @@ interface NumerologyResponse {
   naimen: NumerologyResult;
   kankyo: NumerologyResult;
   ningen: NumerologyResult;
+  sogo: NumerologyResult;
 }
 
 // 数値変換ルール
@@ -94,10 +95,16 @@ export async function getNumerologyFortune(email: string): Promise<NumerologyRes
   const kankyoFortune = numerologyFortunes[kankyoKey] || { text: "", mark: kankyoMark };
   const ningenFortune = numerologyFortunes[ningenKey] || { text: "", mark: ningenMark };
 
+  const sogoFortuneNumber = reduceNumber(naimenFortuneNumber + kankyoFortuneNumber + ningenFortuneNumber);
+  const sogoMark = getWeatherMark(sogoFortuneNumber);
+  const sogoKey = `sogo_${sogoFortuneNumber}` as keyof typeof numerologyFortunes;
+  const sogoFortune = numerologyFortunes[sogoKey] || { text: "", mark: sogoMark };
+
   return {
     naimen: { text: naimenFortune.text, mark: naimenFortune.mark },
     kankyo: { text: kankyoFortune.text, mark: kankyoFortune.mark },
     ningen: { text: ningenFortune.text, mark: ningenFortune.mark },
+    sogo: { text: sogoFortune.text, mark: sogoFortune.mark },
   };
 }
 
