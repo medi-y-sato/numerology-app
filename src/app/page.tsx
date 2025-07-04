@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { getNumerologyFortune } from "./actions";
+import { getNumerologyFortune } from "./fortuneUtils";
 import Accordion from "./components/Accordion";
 
 interface NumerologyResult {

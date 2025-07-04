@@ -1,4 +1,4 @@
-"use server";
+
 
 interface NumerologyResult {
   text: string;
