@@ -27,6 +27,21 @@ export default function Home() {
     const savedEmail = localStorage.getItem("userEmail");
     if (savedEmail) {
       setEmail(savedEmail);
+      // 保存されたメールアドレスがあれば、自動的に占いを実行
+      const fetchFortuneOnLoad = async () => {
+        setIsLoading(true);
+        try {
+          const results = await getNumerologyFortune(savedEmail);
+          setFortuneResults(results);
+          setIsResultVisible(true);
+        } catch (err) {
+          console.error("Failed to fetch fortune on load:", err);
+          setError("占いの取得に失敗しました。時間をおいて再度お試しください。");
+        } finally {
+          setIsLoading(false);
+        }
+      };
+      fetchFortuneOnLoad();
     }
   }, []);
 

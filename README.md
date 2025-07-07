@@ -31,7 +31,9 @@
 pnpm dev
 ```
 
-ブラウザで [http://localhost:3000](http://localhost:3000) を開くと、アプリケーションが表示されます。
+ブラウザで [http://localhost:3000/numerology-app](http://localhost:3000/numerology-app) を開くと、アプリケーションが表示されます。
+
+**注意:** `next dev` コマンドの出力には `http://localhost:3000` と表示されますが、`basePath` の設定により、実際には `/numerology-app` のパスが必要です。
 
 ## 技術スタック
 
